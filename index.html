@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA 评分</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+    <!-- ================= 页面 1 ================= -->
+    <div id="page-1" class="page active">
+        <header>
+            <div class="nav"><span>〈</span><span>分享 ↗</span></div>
+            <div class="scoreboard">
+                <div class="team"><div class="logo">GSW</div><b>勇士</b><small>客/西部</small></div>
+                <div>
+                    <div class="score">118 <span>-</span> 123</div>
+                    <div class="status">已结束 10月8日 10:00</div>
+                </div>
+                <div class="team"><div class="logo por">POR</div><b>开拓者</b><small>主/西部</small></div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <div class="tab">战报</div><div class="tab active">评分</div><div class="tab">统计</div><div class="tab">讨论</div><div class="tab">直播</div>
+        </div>
+
+        <div class="team-switch">
+            <button class="active">勇士</button><button>开拓者</button>
+        </div>
+
+        <!-- 点击跳转卡片 -->
+        <div class="card player-card" onclick="switchPage('page-2')">
+            <div class="player-main">
+                <div class="player-info">
+                    <img class="avatar" src="https://ui-avatars.com/api/?name=Brandin+Williams&background=0D8ABC&color=fff">
+                    <div class="player-meta">
+                        <div class="player-name">布兰登-威廉姆斯 <span style="font-size:11px;color:var(--blue)">查看详情 &gt;</span></div>
+                        <div class="player-stats">17分 3板 4助 1断 3失误 1犯规</div>
+                    </div>
+                </div>
+                <div class="rating-box">
+                    <div class="stars five">★★★★★</div>
+                    <div class="rating-score">9.7</div>
+                    <div class="rating-count">7131JRs评分</div>
+                </div>
+            </div>
+            <div class="comment-bubble">保持状态，波姐状态要还是一坨首发就是你的...</div>
+        </div>
+
+        <div class="card player-card" style="opacity: 0.6;">
+            <div class="player-main">
+                <div class="player-info">
+                    <img class="avatar" src="https://ui-avatars.com/api/?name=Stephen+Curry&background=FFD700&color=333">
+                    <div class="player-meta">
+                        <div class="player-name">斯蒂芬-库里</div>
+                        <div class="player-stats">该球员未上场</div>
+                    </div>
+                </div>
+                <div class="rating-box">
+                    <div class="stars">★★★★☆</div>
+                    <div class="rating-score" style="color: #666;">8.0</div>
+                    <div class="rating-count">4756JRs评分</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 页面 2 ================= -->
+    <div id="page-2" class="page">
+        <div class="detail-nav">
+            <span class="icon" onclick="switchPage('page-1')">〈</span>
+            <div class="score"><div class="logo">GSW</div>118 <span>-</span> 123<div class="logo por">POR</div></div>
+            <span style="font-size:13px;color:var(--text-sub)">海报 ↗</span>
+        </div>
+
+        <div class="detail-header">
+            <img class="avatar" src="https://ui-avatars.com/api/?name=Brandin+Williams&background=0D8ABC&color=fff">
+            <div class="name">布兰登-威廉姆斯 &gt;</div>
+        </div>
+
+        <!-- 数据面板：使用 Grid 精简 DOM -->
+        <div class="stats-grid">
+            <div class="stat-item"><strong>17:55</strong><span>时间</span></div>
+            <div class="stat-item"><strong>17</strong><span>得分</span></div>
+            <div class="stat-item"><strong>3</strong><span>篮板</span></div>
+            <div class="stat-item"><strong>4</strong><span>助攻</span></div>
+            <div class="stat-item"><strong>1</strong><span>抢断</span></div>
+            <div class="stat-item"><strong>0</strong><span>盖帽</span></div>
+            <div class="stat-item"><strong>1</strong><span>+/-</span></div>
+        </div>
+
+        <!-- 趋势图：保持极简 SVG -->
+        <div class="card chart-wrap">
+            <div class="chart-header">
+                <div><span class="title">虎扑评分®</span> <span style="font-size:11px;color:var(--text-sub)">趋势 | 分布</span></div>
+                <div class="score">9.7</div>
+            </div>
+            <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                <path d="M 10 80 Q 40 30 80 20 T 290 15" fill="none" stroke="var(--blue)" stroke-width="2" />
+                <circle cx="10" cy="80" r="3" fill="var(--blue)" />
+                <polygon points="290,10 293,17 300,18 295,23 297,30 290,26 283,30 285,23 280,18 287,17" fill="#fadb14" />
+            </svg>
+            <div class="chart-labels"><span>赛中</span><span>赛后</span></div>
+            <div style="text-align:center; font-size:12px; color:var(--text-sub); margin-top:5px;">
+                <div class="stars five" style="margin-bottom:5px;">★★★★★</div>立即评分
+            </div>
+        </div>
+
+        <!-- 评论区 -->
+        <div class="card">
+            <div class="comments-header">
+                <span>亮回复 / 3</span>
+                <div class="sort"><span class="active">最亮</span><span>最晚</span><span>最早</span></div>
+            </div>
+
+            <div class="comment-item">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=akisnc&background=87CEEB&color=fff">
+                <div class="body">
+                    <div class="info"><span>akisnc</span><span class="stars five" style="font-size:10px;">★★★★★</span></div>
+                    <div class="text">保持状态，波姐状态要还是一坨首发就是你的了</div>
+                    <div class="meta"><span>8小时前 黑龙江 回复</span><span>👍 182</span></div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <img class="avatar" src="https://ui-avatars.com/api/?name=Bruc3ZzZ&background=FFB6C1&color=fff">
+                <div class="body">
+                    <div class="info"><span>Bruc3ZzZ</span></div>
+                    <div class="text">没三分他也打不了2 波杰这赛季估计</div>
+                    <div class="meta"><span>8小时前 回复</span><span>👍 5</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部固定栏 -->
+        <div class="bottom-bar">
+            <input type="text" placeholder="用评分表达态度，用评论诠...">
+            <div class="action">😊</div>
+            <div class="action">🎤<span>语音</span></div>
+            <div class="action">💬<span>373</span></div>
+            <div class="action">↗<span>分享</span></div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
